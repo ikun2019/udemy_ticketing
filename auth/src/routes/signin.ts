@@ -23,7 +23,6 @@ router.post(
 			throw new BadRequestError('ログインに失敗しました');
 		}
 		const isMatch = await bcrypt.compare(password, existingUser.password);
-		console.log('isMatch', isMatch);
 		if (!isMatch) {
 			throw new BadRequestError('ログイン情報が誤っています');
 		}
