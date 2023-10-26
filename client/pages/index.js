@@ -1,14 +1,18 @@
 import axiosClient from '../api/axiosClient';
+import BaseLayout from '../layouts/BaseLayout';
 
-const index = ({ currentUser }) => {
-  return currentUser ? <h1>You are signed in</h1> : <h1>You are not signed in</h1>
+const Landing = ({ currentUser }) => {
+  return (
+    <BaseLayout currentUser={currentUser}>
+      {currentUser ? (<h1>You are signed in!</h1>) : (<h1>You are not signed in!</h1>)}
+    </BaseLayout>
+  )
 }
 
 export async function getServerSideProps(context) {
-  const client = axiosClient();
+  const client = axiosClient(context);
   const response = await client.get('/api/users/currentuser', {
     withCredentials: true,
-    headers: context.req.headers,
   });
 
   return {
@@ -16,4 +20,4 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default index
+export default Landing

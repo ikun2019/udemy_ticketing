@@ -2,8 +2,6 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from "react"
 
-
-
 const signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
