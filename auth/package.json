@@ -18,6 +18,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@im-tickets/common": "^1.0.4",
 		"@types/bcryptjs": "^2.4.5",
 		"@types/cookie-session": "^2.0.46",
 		"@types/express": "^4.17.20",
